@@ -23,19 +23,18 @@ public:
     Q_INVOKABLE void connectToServer(QString ip);
     Q_INVOKABLE void login(QString u, QString p);
     Q_INVOKABLE void registerUser(QString u, QString p);
-
-    // 【修改】返回过滤后的文本，以便本地上屏
     Q_INVOKABLE QString sendMessage(QString content);
 
-    Q_INVOKABLE void startMediaSession();
-    Q_INVOKABLE void endMediaSession();
+    // 【新增】呼叫控制接口
+    Q_INVOKABLE void requestCall(QString targetUser);
+    Q_INVOKABLE void acceptCall();
+    Q_INVOKABLE void rejectCall();
+    Q_INVOKABLE void endCall();
+
     Q_INVOKABLE void selectFriend(QString name);
     Q_INVOKABLE void searchUser(QString keyword);
     Q_INVOKABLE void addFriend(QString friendName);
-
-    // 【新增】获取历史记录
     Q_INVOKABLE void getHistory(QString friendName);
-    // 【新增】清除红点
     Q_INVOKABLE void clearUnread(QString friendName);
 
     Netizen* currentUser() const { return m_currentUser; }
@@ -48,13 +47,16 @@ signals:
     void connectionStatusChanged();
     void messageReceived(QString from, QString content);
     void notificationTriggered(QString title, QString msg);
-
-    // 【新增】历史记录加载完毕信号
     void historyLoaded(QString friendName, QJsonArray history);
+
+    // 【新增】呼叫相关信号
+    void incomingCall(QString fromUser);
+    void callAccepted();
+    void callRejected();
+    void callEnded();
 
 private slots:
     void onReadyRead();
-    void onMediaData(QByteArray data);
     void onConnected();
 
 private:
@@ -63,9 +65,11 @@ private:
     ChatSession *m_chatSession;
     ComplianceController *m_complianceCtrl;
     MediaSessionController *m_mediaCtrl;
-
     QJsonArray m_friendList;
     QJsonObject m_pendingData;
+
+    // 记录通话对象
+    QString m_currentCallTarget;
 
     void sendJson(const QJsonObject &json);
     void handleData(const QByteArray &data);

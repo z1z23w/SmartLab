@@ -3,6 +3,7 @@
 
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QUdpSocket> // UDP支持
 #include <QObject>
 #include <QMap>
 #include <QJsonObject>
@@ -19,21 +20,32 @@ private slots:
     void onReadyRead();
     void onClientDisconnected();
 
+    // 【新增】UDP 读取槽函数
+    void onUdpReadyRead();
+
 private:
     QTcpServer *m_server;
+
+    // 【新增】UDP Socket 及客户端地址映射
+    QUdpSocket *m_udpSocket;
+    struct UserAddress {
+        QHostAddress ip;
+        quint16 port;
+    };
+    QMap<QString, UserAddress> m_udpClients;
+
+    // TCP 相关
     QMap<QString, QTcpSocket*> m_onlineUsers;
     QMap<QTcpSocket*, QString> m_socketToUser;
 
     void sendJson(QTcpSocket *socket, const QJsonObject &obj);
 
+    // 业务处理
     void handleRegister(QTcpSocket *socket, const QJsonObject &req);
     void handleLogin(QTcpSocket *socket, const QJsonObject &req);
     void handleMessage(QTcpSocket *socket, const QJsonObject &req);
-    void handleVoice(QTcpSocket *socket, const QJsonObject &req); // 语音
     void handleSearchUser(QTcpSocket *socket, const QJsonObject &req);
     void handleAddFriend(QTcpSocket *socket, const QJsonObject &req);
-
-    // 【新增】获取历史记录
     void handleGetHistory(QTcpSocket *socket, const QJsonObject &req);
 
     void sendFriendList(QTcpSocket *socket, const QString &username);

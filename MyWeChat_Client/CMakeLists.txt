@@ -30,6 +30,7 @@ qt_add_qml_module(appwe
         MediaSessionController.h MediaSessionController.cpp
         CommunicationController.h CommunicationController.cpp
         QML_FILES Toast.qml
+        QML_FILES CallDialog.qml
 )
 
 target_link_libraries(appwe PRIVATE Qt6::Quick Qt6::Sql Qt6::Network Qt6::Multimedia)

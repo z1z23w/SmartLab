@@ -1,8 +1,0 @@
-<RCC>
-  <qresource prefix="/we/">
-    <file alias="NetizenChatUI.qml">D:/we/MyWeChat_Client/NetizenChatUI.qml</file>
-    <file alias="NotificationPanel.qml">D:/we/MyWeChat_Client/NotificationPanel.qml</file>
-    <file alias="Toast.qml">D:/we/MyWeChat_Client/Toast.qml</file>
-  </qresource>
-</RCC>
-
