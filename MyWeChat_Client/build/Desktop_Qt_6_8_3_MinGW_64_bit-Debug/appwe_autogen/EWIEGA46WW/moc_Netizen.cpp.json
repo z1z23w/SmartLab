@@ -1,0 +1,58 @@
+{
+    "classes": [
+        {
+            "className": "Netizen",
+            "lineNumber": 5,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "username",
+                    "notify": "dataChanged",
+                    "read": "username",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setUsername"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "status",
+                    "notify": "dataChanged",
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setStatus"
+                }
+            ],
+            "qualifiedClassName": "Netizen",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "dataChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "Netizen.h",
+    "outputRevision": 68
+}

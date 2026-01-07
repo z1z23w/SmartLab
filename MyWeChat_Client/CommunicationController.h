@@ -20,18 +20,24 @@ class CommunicationController : public QObject {
 public:
     explicit CommunicationController(QObject *parent = nullptr);
 
-    // --- UI 调用接口 ---
     Q_INVOKABLE void connectToServer(QString ip);
     Q_INVOKABLE void login(QString u, QString p);
     Q_INVOKABLE void registerUser(QString u, QString p);
-    Q_INVOKABLE void sendMessage(QString content);
+
+    // 【修改】返回过滤后的文本，以便本地上屏
+    Q_INVOKABLE QString sendMessage(QString content);
+
     Q_INVOKABLE void startMediaSession();
     Q_INVOKABLE void endMediaSession();
     Q_INVOKABLE void selectFriend(QString name);
     Q_INVOKABLE void searchUser(QString keyword);
     Q_INVOKABLE void addFriend(QString friendName);
 
-    // Getters
+    // 【新增】获取历史记录
+    Q_INVOKABLE void getHistory(QString friendName);
+    // 【新增】清除红点
+    Q_INVOKABLE void clearUnread(QString friendName);
+
     Netizen* currentUser() const { return m_currentUser; }
     ChatSession* currentSession() const { return m_chatSession; }
     QJsonArray friendList() const { return m_friendList; }
@@ -43,11 +49,12 @@ signals:
     void messageReceived(QString from, QString content);
     void notificationTriggered(QString title, QString msg);
 
+    // 【新增】历史记录加载完毕信号
+    void historyLoaded(QString friendName, QJsonArray history);
+
 private slots:
     void onReadyRead();
     void onMediaData(QByteArray data);
-
-    // 【新增】连接建立后的回调
     void onConnected();
 
 private:
@@ -58,8 +65,6 @@ private:
     MediaSessionController *m_mediaCtrl;
 
     QJsonArray m_friendList;
-
-    // 【新增】暂存未发送的数据（解决异步连接问题）
     QJsonObject m_pendingData;
 
     void sendJson(const QJsonObject &json);

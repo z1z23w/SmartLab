@@ -29,6 +29,7 @@ qt_add_qml_module(appwe
         ComplianceController.h ComplianceController.cpp
         MediaSessionController.h MediaSessionController.cpp
         CommunicationController.h CommunicationController.cpp
+        QML_FILES Toast.qml
 )
 
 target_link_libraries(appwe PRIVATE Qt6::Quick Qt6::Sql Qt6::Network Qt6::Multimedia)

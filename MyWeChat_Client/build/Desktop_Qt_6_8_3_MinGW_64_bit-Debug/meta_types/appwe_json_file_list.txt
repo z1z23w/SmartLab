@@ -1,0 +1,6 @@
+D:/we/MyWeChat_Client/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/appwe_autogen/include/../EWIEGA46WW/moc_AudioManager.cpp.json
+D:/we/MyWeChat_Client/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/appwe_autogen/include/../EWIEGA46WW/moc_ChatSession.cpp.json
+D:/we/MyWeChat_Client/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/appwe_autogen/include/../EWIEGA46WW/moc_CommunicationController.cpp.json
+D:/we/MyWeChat_Client/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/appwe_autogen/include/../EWIEGA46WW/moc_ComplianceController.cpp.json
+D:/we/MyWeChat_Client/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/appwe_autogen/include/../EWIEGA46WW/moc_MediaSessionController.cpp.json
+D:/we/MyWeChat_Client/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/appwe_autogen/include/../EWIEGA46WW/moc_Netizen.cpp.json

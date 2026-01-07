@@ -19,18 +19,17 @@ public:
     int getUserId(const QString &username);
     QString getUsername(int userId);
 
-    // 查：获取好友列表
+    // --- 好友相关 ---
     QJsonArray getFriendList(int userId);
-    // 增：添加好友
     bool addFriend(int userId, const QString &friendName);
-    // 删：删除好友
     bool deleteFriend(int userId, const QString &friendName);
-    // 改：修改好友备注
     bool updateFriendRemark(int userId, const QString &friendName, const QString &remark);
-    // 搜：搜索用户
     bool searchUser(const QString &keyword, QJsonObject &result);
 
-    // 更新状态
+    // --- 【新增】消息记录相关 ---
+    bool saveMessage(const QString &sender, const QString &receiver, const QString &content, const QString &type);
+    QJsonArray getChatHistory(const QString &userA, const QString &userB);
+
     void updateUserStatus(int userId, bool isOnline, QString ip, int port);
 
 private:

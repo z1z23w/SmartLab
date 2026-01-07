@@ -1,0 +1,100 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 12,
+                        "durationMicroseconds": 1093,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 8
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 13,
+                        "durationMicroseconds": 246,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 9
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 5,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "show",
+                        "line": 35
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 18,
+                        "durationMicroseconds": 142,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 15
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 31,
+                        "durationMicroseconds": 115,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 17
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 16,
+                        "durationMicroseconds": 172,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 29
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 19,
+                        "durationMicroseconds": 139,
+                        "errorMessage": "",
+                        "functionName": "wrapMode",
+                        "line": 30
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 30,
+                        "durationMicroseconds": 83,
+                        "errorMessage": "",
+                        "functionName": "horizontalAlignment",
+                        "line": 31
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 27,
+                        "durationMicroseconds": 178,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 28
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 141,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 43
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 95,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 47
+                    }
+                ],
+                "filepath": "D:/we/MyWeChat_Client/Toast.qml"
+            }
+        ],
+        "moduleId": "we(appwe)"
+    }
+]

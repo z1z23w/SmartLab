@@ -21,25 +21,22 @@ private slots:
 
 private:
     QTcpServer *m_server;
-
-    // 在线用户映射表
     QMap<QString, QTcpSocket*> m_onlineUsers;
     QMap<QTcpSocket*, QString> m_socketToUser;
 
     void sendJson(QTcpSocket *socket, const QJsonObject &obj);
 
-    // 业务处理函数
     void handleRegister(QTcpSocket *socket, const QJsonObject &req);
     void handleLogin(QTcpSocket *socket, const QJsonObject &req);
     void handleMessage(QTcpSocket *socket, const QJsonObject &req);
-
-    // 好友 CRUD Handler
+    void handleVoice(QTcpSocket *socket, const QJsonObject &req); // 语音
     void handleSearchUser(QTcpSocket *socket, const QJsonObject &req);
     void handleAddFriend(QTcpSocket *socket, const QJsonObject &req);
-    void handleDeleteFriend(QTcpSocket *socket, const QJsonObject &req);
-    void handleUpdateFriend(QTcpSocket *socket, const QJsonObject &req);
 
-    void sendFriendList(QTcpSocket *socket, int userId);
+    // 【新增】获取历史记录
+    void handleGetHistory(QTcpSocket *socket, const QJsonObject &req);
+
+    void sendFriendList(QTcpSocket *socket, const QString &username);
 };
 
 #endif // CHATSERVER_H
