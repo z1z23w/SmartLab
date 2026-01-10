@@ -37,3 +37,4 @@ qt_add_qml_module(appwe
 )
 
 target_link_libraries(appwe PRIVATE Qt6::Quick Qt6::Sql Qt6::Network Qt6::Multimedia)
+
