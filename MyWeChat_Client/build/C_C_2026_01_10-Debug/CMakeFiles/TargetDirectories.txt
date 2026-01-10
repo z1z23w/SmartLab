@@ -1,0 +1,17 @@
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/appwe.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/appwe_qmltyperegistration.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/all_qmltyperegistrations.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/appwe_qmllint.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/appwe_qmllint_json.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/appwe_qmllint_module.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/all_qmllint.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/all_qmllint_json.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/all_qmllint_module.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/appwe_tooling.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/module_appwe_aotstats_target.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/all_aotstats.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/appwe_qmlimportscan.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/edit_cache.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/rebuild_cache.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/appwe_autogen_timestamp_deps.dir
+/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/CMakeFiles/appwe_autogen.dir

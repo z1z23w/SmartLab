@@ -1,0 +1,51 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "" "appwe_autogen/timestamp" "custom" "appwe_autogen/deps"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/AudioManager.cpp" "CMakeFiles/appwe.dir/AudioManager.cpp.o" "gcc" "CMakeFiles/appwe.dir/AudioManager.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/ChatSession.cpp" "CMakeFiles/appwe.dir/ChatSession.cpp.o" "gcc" "CMakeFiles/appwe.dir/ChatSession.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/CommunicationController.cpp" "CMakeFiles/appwe.dir/CommunicationController.cpp.o" "gcc" "CMakeFiles/appwe.dir/CommunicationController.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/ComplianceController.cpp" "CMakeFiles/appwe.dir/ComplianceController.cpp.o" "gcc" "CMakeFiles/appwe.dir/ComplianceController.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/Main.cpp" "CMakeFiles/appwe.dir/Main.cpp.o" "gcc" "CMakeFiles/appwe.dir/Main.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/MediaSessionController.cpp" "CMakeFiles/appwe.dir/MediaSessionController.cpp.o" "gcc" "CMakeFiles/appwe.dir/MediaSessionController.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/Netizen.cpp" "CMakeFiles/appwe.dir/Netizen.cpp.o" "gcc" "CMakeFiles/appwe.dir/Netizen.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/VideoItem.cpp" "CMakeFiles/appwe.dir/VideoItem.cpp.o" "gcc" "CMakeFiles/appwe.dir/VideoItem.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/appwe_autogen/mocs_compilation.cpp" "CMakeFiles/appwe.dir/appwe_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/appwe.dir/appwe_autogen/mocs_compilation.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/appwe_qmltyperegistrations.cpp" "CMakeFiles/appwe.dir/appwe_qmltyperegistrations.cpp.o" "gcc" "CMakeFiles/appwe.dir/appwe_qmltyperegistrations.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.qt/rcc/qrc_appwe_raw_qml_0.cpp" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.qt/rcc/qrc_appwe_raw_qml_0.cpp.o" "gcc" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.qt/rcc/qrc_appwe_raw_qml_0.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.qt/rcc/qrc_qmake_we.cpp" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.qt/rcc/qrc_qmake_we.cpp.o" "gcc" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.qt/rcc/qrc_qmake_we.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_CallDialog_qml.cpp" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_CallDialog_qml.cpp.o" "gcc" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_CallDialog_qml.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NetizenChatUI_qml.cpp" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NetizenChatUI_qml.cpp.o" "gcc" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NetizenChatUI_qml.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NotificationPanel_qml.cpp" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NotificationPanel_qml.cpp.o" "gcc" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NotificationPanel_qml.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_Toast_qml.cpp" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_Toast_qml.cpp.o" "gcc" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_Toast_qml.cpp.o.d"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_qmlcache_loader.cpp" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_qmlcache_loader.cpp.o" "gcc" "CMakeFiles/appwe.dir/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_qmlcache_loader.cpp.o.d"
+  "" "appwe" "gcc" "CMakeFiles/appwe.dir/link.d"
+  )
+
+# Pairs of files generated by the same build rule.
+set(CMAKE_MULTIPLE_OUTPUT_PAIRS
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_CallDialog_qml.cpp.aotstats" "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_CallDialog_qml.cpp"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NetizenChatUI_qml.cpp.aotstats" "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NetizenChatUI_qml.cpp"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NotificationPanel_qml.cpp.aotstats" "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_NotificationPanel_qml.cpp"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_Toast_qml.cpp.aotstats" "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/.rcc/qmlcache/appwe_Toast_qml.cpp"
+  "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/we/appwe.qmltypes" "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/build/C_C_2026_01_10-Debug/appwe_qmltyperegistrations.cpp"
+  )
+
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

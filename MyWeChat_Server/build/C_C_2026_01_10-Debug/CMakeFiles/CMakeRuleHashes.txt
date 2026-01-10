@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+81d49a92c74f75356006bcfb87a212a7 CMakeFiles/WeChatServer_autogen
+e3d43ad35fc5488c21a1d6a4aebcaff0 WeChatServer_autogen/timestamp

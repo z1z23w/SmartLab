@@ -1,0 +1,360 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "CommunicationController",
+            "lineNumber": 12,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "ip",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 11,
+                    "name": "connectToServer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "u",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "p",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 12,
+                    "name": "login",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "u",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "p",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 13,
+                    "name": "registerUser",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "content",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 14,
+                    "name": "sendMessage",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "targetUser",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "mode",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 15,
+                    "name": "requestCall",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 16,
+                    "name": "acceptCall",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 17,
+                    "name": "rejectCall",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 18,
+                    "name": "endCall",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "item",
+                            "type": "VideoItem*"
+                        }
+                    ],
+                    "index": 19,
+                    "name": "setRemoteVideoItem",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 20,
+                    "name": "selectFriend",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "keyword",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 21,
+                    "name": "searchUser",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "friendName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 22,
+                    "name": "addFriend",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "friendName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 23,
+                    "name": "getHistory",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "friendName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 24,
+                    "name": "clearUnread",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "currentUser",
+                    "read": "currentUser",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "Netizen*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "currentSession",
+                    "read": "currentSession",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ChatSession*",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "friendList",
+                    "notify": "friendListChanged",
+                    "read": "friendList",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QJsonArray",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "isConnected",
+                    "notify": "connectionStatusChanged",
+                    "read": "isConnected",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "CommunicationController",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "friendListChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "connectionStatusChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "from",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "content",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "messageReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "title",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "msg",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "notificationTriggered",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "friendName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "history",
+                            "type": "QJsonArray"
+                        }
+                    ],
+                    "index": 4,
+                    "name": "historyLoaded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fromUser",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "mode",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 5,
+                    "name": "incomingCall",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "mode",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 6,
+                    "name": "callAccepted",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 7,
+                    "name": "callRejected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 8,
+                    "name": "callEnded",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 9,
+                    "name": "onReadyRead",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 10,
+                    "name": "onConnected",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "CommunicationController.h",
+    "outputRevision": 68
+}

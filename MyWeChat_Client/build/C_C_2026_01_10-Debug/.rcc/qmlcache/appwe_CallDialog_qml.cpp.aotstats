@@ -1,0 +1,180 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 8,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on x.",
+                        "functionName": "x",
+                        "line": 10
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 8,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on y.",
+                        "functionName": "y",
+                        "line": 11
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 18,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on closePolicy.",
+                        "functionName": "closePolicy",
+                        "line": 13
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 15,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClosed.",
+                        "functionName": "onClosed",
+                        "line": 26
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 23,
+                        "durationMicroseconds": 177,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 31
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 22,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on visible.",
+                        "functionName": "visible",
+                        "line": 36
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 27,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on fill.",
+                        "functionName": "fill",
+                        "line": 35
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 22,
+                        "durationMicroseconds": 24,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: remoteVideo",
+                        "functionName": "visible",
+                        "line": 43
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 31,
+                        "durationMicroseconds": 89,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 40
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 27,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on text.",
+                        "functionName": "text",
+                        "line": 49
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 39,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on centerIn.",
+                        "functionName": "centerIn",
+                        "line": 50
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 23,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on text.",
+                        "functionName": "text",
+                        "line": 55
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 29,
+                        "durationMicroseconds": 234,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 68
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 39,
+                        "durationMicroseconds": 225,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 70
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 28,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 78
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 44,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on text.",
+                        "functionName": "text",
+                        "line": 77
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 91,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on centerIn.",
+                        "functionName": "centerIn",
+                        "line": 77
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 26,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on visible.",
+                        "functionName": "visible",
+                        "line": 85
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 28,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 90
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 44,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on text.",
+                        "functionName": "text",
+                        "line": 89
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 91,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on centerIn.",
+                        "functionName": "centerIn",
+                        "line": 89
+                    }
+                ],
+                "filepath": "/run/media/root/f6ad52dd-6a3e-40b7-9a1f-8323c318e456/大型软件开发/WeChat-main/MyWeChat_Client/CallDialog.qml"
+            }
+        ],
+        "moduleId": "we(appwe)"
+    }
+]
