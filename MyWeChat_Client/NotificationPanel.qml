@@ -1,14 +1,14 @@
-import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 Dialog {
     id: root
     title: "系统通知"
-
+    width: 320
+    height: 180
     x: (parent.width - width) / 2
     y: (parent.height - height) / 2
-
     modal: true
     standardButtons: Dialog.Ok
 
@@ -27,5 +27,12 @@ Dialog {
             Layout.alignment: Qt.AlignHCenter
             padding: 20
         }
+    }
+
+    background: Rectangle {
+        color: "white"
+        border.color: "#eeeeee"
+        border.width: 1
+        radius: 8
     }
 }

@@ -4,18 +4,29 @@
 
 class Netizen : public QObject {
     Q_OBJECT
-    QML_ELEMENT
+    QML_ELEMENT  // 供QML访问的标记
+    // 声明属性，指定读写函数和通知信号
     Q_PROPERTY(QString username READ username WRITE setUsername NOTIFY dataChanged)
     Q_PROPERTY(QString status READ status WRITE setStatus NOTIFY dataChanged)
+
 public:
-    explicit Netizen(QObject *parent = nullptr) : QObject(parent) {}
-    QString username() const { return m_username; }
-    void setUsername(const QString &u) { if(m_username!=u){m_username=u; emit dataChanged();} }
-    QString status() const { return m_status; }
-    void setStatus(const QString &s) { if(m_status!=s){m_status=s; emit dataChanged();} }
+    // 构造函数声明
+    explicit Netizen(QObject *parent = nullptr);
+
+    // 读函数声明
+    QString username() const;
+    QString status() const;
+
+    // 写函数声明
+    void setUsername(const QString &u);
+    void setStatus(const QString &s);
+
 signals:
+    // 数据变更通知信号
     void dataChanged();
+
 private:
+    // 私有成员变量
     QString m_username;
-    QString m_status = "Offline";
+    QString m_status = "Offline";  // 初始化为离线状态
 };

@@ -98,14 +98,82 @@ ApplicationWindow {
         visible: controller.currentUser.status === "Online"
 
         header: ToolBar {
+            background: Rectangle { color: Material.accent }
+
+            // 修复：重新组织导航栏布局，确保标题居中
             RowLayout {
                 anchors.fill: parent
-                ToolButton { text: "通信录"; onClicked: swipe.currentIndex = 0 }
+
+                // 左侧按钮容器（占固定宽度，保证标题居中）
+                Item {
+                    Layout.preferredWidth: 40
+                    Layout.preferredHeight: 40
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+
+                    ToolButton {
+                        id: backButton
+                        visible: swipe.currentIndex === 1
+                        text: "←"
+                        font.pixelSize: 20
+                        onClicked: {
+                            swipe.currentIndex = 0
+                            controller.clearCurrentSession()
+                        }
+                        background: Rectangle {
+                            color: "transparent"
+                            radius: 20
+                        }
+                        contentItem: Label {
+                            text: parent.text
+                            color: "white"
+                            anchors.centerIn: parent
+                        }
+                    }
+                    ToolButton {
+                        visible: swipe.currentIndex === 0
+                        text: "通信录"
+                        onClicked: swipe.currentIndex = 0
+                        contentItem: Label {
+                            text: parent.text
+                            color: "white"
+                            font.bold: true
+                        }
+                    }
+                }
+
                 Label {
                     text: swipe.currentIndex === 0 ? "联系人" : controller.currentSession.currentTarget
-                    color: "white"; font.bold: true; Layout.alignment: Qt.AlignCenter
+                    color: "white"
+                    font.bold: true
+                    Layout.fillWidth: true  // 填充剩余宽度
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter  // 水平+垂直居中
+                    horizontalAlignment: Text.AlignHCenter  // 文字自身也居中
                 }
-                ToolButton { text: "+"; visible: swipe.currentIndex===0; onClicked: searchDialog.open() }
+
+                // 右侧按钮容器（占固定宽度，保证标题居中）
+                Item {
+                    Layout.preferredWidth: 40
+                    Layout.preferredHeight: 40
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+
+                    ToolButton {
+                        text: "+"
+                        visible: swipe.currentIndex === 0
+                        onClicked: searchDialog.open()
+
+                        Layout.alignment: Qt.AlignCenter  // 按钮在容器内居中
+                        background: Rectangle {
+                            color: "transparent"
+                            radius: 20
+                        }
+                        contentItem: Label {
+                            text: parent.text
+                            color: "white"
+                            font.pixelSize: 20
+                            anchors.centerIn: parent
+                        }
+                    }
+                }
             }
         }
 
@@ -114,18 +182,86 @@ ApplicationWindow {
             anchors.fill: parent
             interactive: false
 
-            //联系人列表
             ListView {
+                id: friendListView
                 model: controller.friendList
-                delegate: ItemDelegate {
+                spacing: 0
+
+                delegate: Item {
                     width: parent.width
-                    text: modelData.username + (modelData.unread ? " 🔴" : "")
-                    onClicked: {
-                        controller.selectFriend(modelData.username)
-                        controller.clearUnread(modelData.username)
-                        chatModel.clear()
-                        controller.getHistory(modelData.username)
-                        swipe.currentIndex = 1
+                    height: 70
+                    // 点击区域
+                    MouseArea {
+                        id: mouseArea
+                        anchors.fill: parent
+                        onClicked: {
+                            controller.selectFriend(modelData.username)
+                            // 移除：controller.clearUnread(modelData.username)
+                            chatModel.clear()
+                            controller.getHistory(modelData.username)
+                            swipe.currentIndex = 1
+                        }
+                        // 悬停效果
+                        hoverEnabled: true
+                    }
+
+                    // 背景色（包含悬停/选中状态）
+                    Rectangle {
+                        anchors.fill: parent
+                        color: {
+                            if (mouseArea.containsMouse) return "#f0f0f0"  // 悬停色
+                            else if (controller.currentSession.currentTarget === modelData.username) return "#e6f7ea"  // 选中色
+                            else return "white"  // 默认色
+                        }
+                        // 底部分割线
+                        Rectangle {
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            height: 1
+                            color: "#eeeeee"
+                        }
+                    }
+
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.margins: 10
+                        spacing: 10
+
+                        // 头像
+                        Rectangle {
+                            width: 50
+                            height: 50
+                            radius: 25  // 圆形头像
+                            color: "#07c160"  // 微信绿作为默认头像背景
+                            Label {
+                                anchors.centerIn: parent
+                                text: modelData.username.substring(0,1)  // 取用户名第一个字作为头像文字
+                                color: "white"
+                                font.pixelSize: 20
+                                font.bold: true
+                            }
+                        }
+
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignVCenter
+
+                            RowLayout {
+                                Layout.fillWidth: true
+
+                                Label {
+                                    text: modelData.username
+                                    font.pixelSize: 16
+                                    font.bold: true
+                                    color: "#333333"
+                                }
+
+                                Item { Layout.fillWidth: true }
+
+                            }
+
+                        }
                     }
                 }
             }

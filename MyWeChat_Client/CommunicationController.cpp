@@ -1,6 +1,8 @@
 #include "CommunicationController.h"
 #include <QJsonDocument>
 #include <QDebug>
+#include <QByteArray>
+#include <QBuffer>
 
 CommunicationController::CommunicationController(QObject *parent) : QObject(parent) {
     m_socket = new QTcpSocket(this);
@@ -9,25 +11,99 @@ CommunicationController::CommunicationController(QObject *parent) : QObject(pare
     m_complianceCtrl = new ComplianceController(this);
     m_mediaCtrl = new MediaSessionController(this);
 
+    m_voiceRecordManager = new AudioManager(this);
+    connect(m_voiceRecordManager, &AudioManager::audioDataReady, this, &CommunicationController::onVoiceDataReady);
+
     connect(m_socket, &QTcpSocket::readyRead, this, &CommunicationController::onReadyRead);
     connect(m_socket, &QTcpSocket::connected, this, &CommunicationController::onConnected);
 }
 
 bool CommunicationController::isConnected() const { return m_socket->state() == QTcpSocket::ConnectedState; }
-void CommunicationController::onConnected() { emit connectionStatusChanged(); if (!m_pendingData.isEmpty()) { sendJson(m_pendingData); m_pendingData = QJsonObject(); } }
-void CommunicationController::connectToServer(QString ip) { if (m_socket->state() == QTcpSocket::ConnectedState && m_socket->peerAddress().toString() == ip) return; m_socket->abort(); m_socket->connectToHost(ip, 9999); }
-void CommunicationController::login(QString u, QString p) { QJsonObject o; o["type"]="login"; o["username"]=u; o["password"]=p; sendJson(o); }
-void CommunicationController::registerUser(QString u, QString p) { QJsonObject o; o["type"]="register"; o["username"]=u; o["password"]=p; sendJson(o); }
-QString CommunicationController::sendMessage(QString content) { if (m_chatSession->currentTarget().isEmpty()) return ""; QString safeText = m_complianceCtrl->checkAndFilter(content); QJsonObject o; o["type"]="msg"; o["to"]=m_chatSession->currentTarget(); o["content"]=safeText; sendJson(o); return safeText; }
-void CommunicationController::selectFriend(QString name) { m_chatSession->setCurrentTarget(name); }
-void CommunicationController::getHistory(QString friendName) { QJsonObject o; o["type"] = "get_history"; o["friend_name"] = friendName; sendJson(o); }
-void CommunicationController::clearUnread(QString friendName) { for (int i = 0; i < m_friendList.size(); ++i) { QJsonObject f = m_friendList[i].toObject(); if (f["username"].toString() == friendName) { if (f.contains("unread")) { f.remove("unread"); m_friendList[i] = f; emit friendListChanged(); } break; } } }
-void CommunicationController::searchUser(QString keyword) { QJsonObject o; o["type"]="search_user"; o["keyword"]=keyword; sendJson(o); }
-void CommunicationController::addFriend(QString friendName) { QJsonObject o; o["type"]="add_friend"; o["friend_name"]=friendName; sendJson(o); }
-void CommunicationController::sendJson(const QJsonObject &json) { if (isConnected()) { m_socket->write(QJsonDocument(json).toJson()); m_socket->flush(); } else { m_pendingData = json; } }
+void CommunicationController::onConnected() {
+    emit connectionStatusChanged();
+    if (!m_pendingData.isEmpty()) {
+        sendJson(m_pendingData);
+        m_pendingData = QJsonObject();
+    }
+}
+void CommunicationController::connectToServer(QString ip) {
+    if (m_socket->state() == QTcpSocket::ConnectedState && m_socket->peerAddress().toString() == ip) return;
+    m_socket->abort();
+    m_socket->connectToHost(ip, 9999);
+}
 
-//呼叫控制
+void CommunicationController::login(QString u, QString p) {
+    QJsonObject o;
+    o["type"]="login"; o["username"]=u; o["password"]=p;
+    sendJson(o);
+}
 
+void CommunicationController::registerUser(QString u, QString p) {
+    QJsonObject o;
+    o["type"]="register"; o["username"]=u; o["password"]=p;
+    sendJson(o);
+}
+
+QString CommunicationController::sendMessage(QString content) {
+    if (m_chatSession->currentTarget().isEmpty()) return "";
+    QString safeText = m_complianceCtrl->checkAndFilter(content);
+    QJsonObject o;
+    o["type"]="msg"; o["to"]=m_chatSession->currentTarget(); o["content"]=safeText;
+    sendJson(o);
+    return safeText;
+}
+
+void CommunicationController::startRecordVoice() {
+    if (m_isRecordingVoice || m_chatSession->currentTarget().isEmpty()) {
+        emit notificationTriggered("提示", "无法开始录制（未选择好友/已在录制）");
+        return;
+    }
+    m_isRecordingVoice = true;
+    m_recordingVoiceData.clear(); // 清空缓存
+    m_voiceRecordManager->startRecording();
+    emit isRecordingVoiceChanged();
+    emit notificationTriggered("提示", "开始录制语音...");
+}
+
+void CommunicationController::stopRecordVoice() {
+    if (!m_isRecordingVoice) return;
+
+    m_isRecordingVoice = false;
+    m_voiceRecordManager->stopRecording();
+    emit isRecordingVoiceChanged();
+
+    if (m_recordingVoiceData.isEmpty()) {
+        emit notificationTriggered("提示", "录制内容为空，取消发送");
+        return;
+    }
+
+    // 构造语音消息JSON（音频数据Base64编码）
+    QJsonObject voiceMsg;
+    voiceMsg["type"] = "voice_msg";
+    voiceMsg["to"] = m_chatSession->currentTarget();
+    voiceMsg["from"] = m_currentUser->username();
+    voiceMsg["voice_data"] = QString(m_recordingVoiceData.toBase64()); // Base64便于JSON传输
+
+    sendJson(voiceMsg);
+    emit notificationTriggered("提示", "语音消息发送成功");
+    m_recordingVoiceData.clear(); // 清空缓存
+}
+
+void CommunicationController::playVoiceMessage(const QByteArray &voiceData) {
+    if (voiceData.isEmpty()) return;
+    // 重置音频输出，避免残留
+    m_voiceRecordManager->resetOutput();
+    // 播放音频数据
+    m_voiceRecordManager->playAudioChunk(voiceData);
+}
+
+void CommunicationController::onVoiceDataReady(QByteArray data) {
+    if (m_isRecordingVoice) {
+        m_recordingVoiceData.append(data);
+    }
+}
+
+// 呼叫控制逻辑（原有代码不变）
 void CommunicationController::requestCall(QString targetUser, QString mode) {
     m_currentCallTarget = targetUser;
     m_currentCallMode = mode;
@@ -43,15 +119,9 @@ void CommunicationController::requestCall(QString targetUser, QString mode) {
 void CommunicationController::acceptCall() {
     qDebug() << "Accepting call from" << m_currentCallTarget;
     m_mediaCtrl->setTarget(m_currentCallTarget);
-
-    //开启硬件
     bool isVideo = (m_currentCallMode == "video");
     m_mediaCtrl->startCall(isVideo);
-
-    //立刻通知本地UI切换状态
     emit callAccepted(m_currentCallMode);
-
-    //发送回执
     QJsonObject o;
     o["type"] = "call_response";
     o["to"] = m_currentCallTarget;
@@ -74,7 +144,6 @@ void CommunicationController::rejectCall() {
 void CommunicationController::endCall() {
     qDebug() << "Ending call";
     m_mediaCtrl->stopCall();
-
     if (!m_currentCallTarget.isEmpty()) {
         QJsonObject o;
         o["type"] = "call_end";
@@ -83,10 +152,10 @@ void CommunicationController::endCall() {
         sendJson(o);
     }
     m_currentCallTarget = "";
-    emit callEnded(); // 确保本地状态更新
+    emit callEnded();
 }
 
-//数据接收
+// 数据接收逻辑（新增语音消息处理）
 void CommunicationController::onReadyRead() {
     QByteArray data = m_socket->readAll();
     data.replace("}{", "}|{");
@@ -125,6 +194,22 @@ void CommunicationController::handleData(const QByteArray &data) {
             }
         }
         emit messageReceived(from, content);
+    }
+
+    else if (type == "voice_msg") {
+        QString from = obj.value("from").toString();
+        QByteArray voiceData = QByteArray::fromBase64(obj.value("voice_data").toString().toUtf8());
+        bool isCurrent = (m_chatSession->currentTarget() == from);
+        if (!isCurrent) {
+            for (int i = 0; i < m_friendList.size(); ++i) {
+                QJsonObject f = m_friendList[i].toObject();
+                if (f["username"].toString() == from) {
+                    f["unread"] = true; m_friendList[i] = f;
+                    emit friendListChanged(); break;
+                }
+            }
+        }
+        emit voiceMessageReceived(from, voiceData); // 触发语音接收信号
     }
     else if (type == "call_request") {
         QString from = obj.value("from").toString();
@@ -166,5 +251,41 @@ void CommunicationController::handleData(const QByteArray &data) {
     else if (type == "search_user_resp") {
         if (obj.value("found").toBool()) emit notificationTriggered("搜索", "找到用户: "+obj.value("user").toObject().value("username").toString());
         else emit notificationTriggered("搜索", "用户不存在");
+    }
+}
+
+void CommunicationController::selectFriend(QString name) { m_chatSession->setCurrentTarget(name); }
+void CommunicationController::getHistory(QString friendName) {
+    QJsonObject o;
+    o["type"] = "get_history"; o["friend_name"] = friendName;
+    sendJson(o);
+}
+void CommunicationController::clearUnread(QString friendName) {
+    for (int i = 0; i < m_friendList.size(); ++i) {
+        QJsonObject f = m_friendList[i].toObject();
+        if (f["username"].toString() == friendName) {
+            if (f.contains("unread")) {
+                f.remove("unread"); m_friendList[i] = f;
+                emit friendListChanged();
+            } break;
+        }
+    }
+}
+void CommunicationController::searchUser(QString keyword) {
+    QJsonObject o;
+    o["type"]="search_user"; o["keyword"]=keyword;
+    sendJson(o);
+}
+void CommunicationController::addFriend(QString friendName) {
+    QJsonObject o;
+    o["type"]="add_friend"; o["friend_name"]=friendName;
+    sendJson(o);
+}
+void CommunicationController::sendJson(const QJsonObject &json) {
+    if (isConnected()) {
+        m_socket->write(QJsonDocument(json).toJson());
+        m_socket->flush();
+    } else {
+        m_pendingData = json;
     }
 }

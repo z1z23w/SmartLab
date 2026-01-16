@@ -21,8 +21,8 @@ qt_add_qml_module(appwe
         CallDialog.qml
     SOURCES
         # Entity实体类
-        Netizen.h Netizen.cpp
-        ChatSession.h ChatSession.cpp
+
+
 
         # Infrastructure基础设施
         AudioManager.h AudioManager.cpp
@@ -34,6 +34,10 @@ qt_add_qml_module(appwe
 
         # Video相关
         VideoItem.h VideoItem.cpp
+        SOURCES
+        SOURCES
+        SOURCES Netizen.h Netizen.cpp
+        SOURCES ChatSession.h ChatSession.cpp
 )
 
 target_link_libraries(appwe PRIVATE Qt6::Quick Qt6::Sql Qt6::Network Qt6::Multimedia)
